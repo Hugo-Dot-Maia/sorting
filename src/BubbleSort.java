@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 public class BubbleSort {
-
     public void sort(int[] arr) {
 
         int [] bubbleArray = Arrays.copyOf(arr, arr.length);
