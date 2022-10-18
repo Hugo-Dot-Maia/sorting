@@ -2,10 +2,8 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) {
-        var bubbleSort = new BubbleSort();
-        var selectionSort = new SelectionSort();
 
+    private static int[] initializeUnsortedNumbers(){
         Scanner sc = new Scanner(System.in);
         System.out.print("Insira a quantidade de números a se ordenar: ");
         int numberQuantity = sc.nextInt();
@@ -18,6 +16,14 @@ public class Main {
         for (int i = 0; i < numberQuantity; i++) {
             unsortedNumbers[i] = rand.nextInt(upperbound);
         }
+        return unsortedNumbers;
+    }
+    public static void main(String[] args) {
+        var bubbleSort = new BubbleSort();
+        var selectionSort = new SelectionSort();
+        var insertionSort = new InsertionSort();
+
+        var unsortedNumbers = initializeUnsortedNumbers();
 
         System.out.print("Itens sem ordem: ");
         for (int unsortedNumber : unsortedNumbers) {
@@ -28,6 +34,8 @@ public class Main {
         bubbleSort.sort(unsortedNumbers);
         System.out.println("");
         selectionSort.sort(unsortedNumbers);
+        System.out.println("");
+        insertionSort.sort(unsortedNumbers);
 
     }
 }
