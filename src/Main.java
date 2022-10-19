@@ -28,6 +28,7 @@ public class Main {
         var heapSort = new HeapSort("Heap Sort");
         var mergeSort = new MergeSort("Merge Sort");
         var quickSort = new QuickSort("Quick Sort");
+        var countingSort = new CountingSort("Counting Sort");
         var baseSortList = new ArrayList<BaseSort>();
 
         var unsortedNumbers = initializeUnsortedNumbers();
@@ -41,6 +42,7 @@ public class Main {
         heapSort.sort(unsortedNumbers);
         mergeSort.sort(unsortedNumbers, 0, unsortedNumbers.length - 1);
         quickSort.sort(unsortedNumbers, 0, unsortedNumbers.length - 1);
+        countingSort.sort(unsortedNumbers);
 
         baseSortList.add(bubbleSort);
         baseSortList.add(selectionSort);
@@ -48,6 +50,7 @@ public class Main {
         baseSortList.add(heapSort);
         baseSortList.add(mergeSort);
         baseSortList.add(quickSort);
+        baseSortList.add(countingSort);
         printResult(baseSortList);
 
     }
