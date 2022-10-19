@@ -7,6 +7,7 @@ public class BubbleSort extends BaseSort{
 
     @Override
     public void sort(int[] arr) {
+        tempoInicio = System.currentTimeMillis();
 
         sortedArray = Arrays.copyOf(arr, arr.length);
         int n = sortedArray.length;
@@ -22,6 +23,7 @@ public class BubbleSort extends BaseSort{
 
             }
         }
+        tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
 
     }
 }

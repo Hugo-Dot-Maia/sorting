@@ -19,7 +19,14 @@ public class Main {
     }
 
     private static void printResult(List<BaseSort> baseSortList){
-        baseSortList.forEach(BaseSort::printArray);
+        baseSortList.forEach( baseSort -> {
+            System.out.println(
+                    "\n\nTempo decorrido para "
+                            + baseSort.algorithmName
+                            + " foi de: "
+                            + baseSort.tempoTranscorrido);
+           // baseSort.printArray();
+        });
     }
     public static void main(String[] args) {
         var bubbleSort = new BubbleSort("Bubble Sort");
@@ -34,7 +41,7 @@ public class Main {
         var unsortedNumbers = initializeUnsortedNumbers();
 
         System.out.print("Itens sem ordem: ");
-        Arrays.stream(unsortedNumbers).forEach(value -> System.out.print(value + " "));
+        //Arrays.stream(unsortedNumbers).forEach(value -> System.out.print(value + " "));
 
         bubbleSort.sort(unsortedNumbers);
         selectionSort.sort(unsortedNumbers);
