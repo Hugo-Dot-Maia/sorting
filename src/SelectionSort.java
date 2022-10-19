@@ -8,6 +8,7 @@ public class SelectionSort extends BaseSort {
 
     @Override
     public void sort(int[] arr) {
+        tempoInicio = System.currentTimeMillis();
 
         sortedArray = Arrays.copyOf(arr, arr.length);
         int n = sortedArray.length;
@@ -22,5 +23,7 @@ public class SelectionSort extends BaseSort {
             sortedArray[min_idx] = sortedArray[i];
             sortedArray[i] = temp;
         }
+
+        tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
 }

@@ -7,6 +7,8 @@ public class HeapSort extends BaseSort {
     @Override
     public void sort(int[] arr)
     {
+        tempoInicio = System.currentTimeMillis();
+
         sortedArray = Arrays.copyOf(arr, arr.length);
         int N = sortedArray.length;
 
@@ -24,6 +26,8 @@ public class HeapSort extends BaseSort {
             // call max heapify on the reduced heap
             heapify(sortedArray, i, 0);
         }
+
+        tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
 
     void heapify(int[] arr, int N, int i)

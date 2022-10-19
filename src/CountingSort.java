@@ -8,6 +8,8 @@ public class CountingSort extends BaseSort{
 
     @Override
     public void sort(int[] arr) {
+        tempoInicio = System.currentTimeMillis();
+
         sortedArray = Arrays.copyOf(arr, arr.length);
         int max = Arrays.stream(sortedArray).max().getAsInt();
         int min = Arrays.stream(sortedArray).min().getAsInt();
@@ -29,5 +31,6 @@ public class CountingSort extends BaseSort{
 
         System.arraycopy(output, 0, sortedArray, 0, sortedArray.length);
 
+        tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
 }

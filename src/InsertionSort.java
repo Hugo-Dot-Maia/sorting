@@ -8,6 +8,8 @@ public class InsertionSort extends BaseSort {
 
     @Override
     public void sort(int[] arr) {
+        tempoInicio = System.currentTimeMillis();
+
         sortedArray = Arrays.copyOf(arr, arr.length);
         int n = sortedArray.length;
         for (int i = 1; i < n; ++i) {
@@ -20,5 +22,7 @@ public class InsertionSort extends BaseSort {
             }
             sortedArray[j + 1] = key;
         }
+
+        tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
 }

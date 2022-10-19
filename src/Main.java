@@ -8,7 +8,7 @@ public class Main {
         int numberQuantity = sc.nextInt();
 
         Random rand = new Random();
-        int upperbound = 10000;
+        int upperbound = 100000;
 
         int[] unsortedNumbers = new int[numberQuantity] ;
 
@@ -21,7 +21,7 @@ public class Main {
     private static void printResult(List<BaseSort> baseSortList){
         baseSortList.forEach( baseSort -> {
             System.out.println(
-                    "\n\nTempo decorrido para "
+                    "\nTempo decorrido para "
                             + baseSort.algorithmName
                             + " foi de: "
                             + baseSort.tempoTranscorrido);
@@ -40,7 +40,7 @@ public class Main {
 
         var unsortedNumbers = initializeUnsortedNumbers();
 
-        System.out.print("Itens sem ordem: ");
+        //System.out.print("Itens sem ordem: ");
         //Arrays.stream(unsortedNumbers).forEach(value -> System.out.print(value + " "));
 
         bubbleSort.sort(unsortedNumbers);
