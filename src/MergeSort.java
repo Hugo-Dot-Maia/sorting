@@ -74,8 +74,11 @@ public class MergeSort extends BaseSort{
 
     @Override
     public void sort(int[] arr){
+        tempoInicio = System.currentTimeMillis();
+
         sortedArray = Arrays.copyOf(arr, arr.length);
         mergeSort(sortedArray,0, sortedArray.length - 1);
 
+        tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
 }

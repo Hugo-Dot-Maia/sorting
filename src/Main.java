@@ -48,7 +48,7 @@ public class Main {
                             + baseSort.algorithmName
                             + " foi de: "
                             + baseSort.tempoTranscorrido);
-            baseSort.printArray();
+            //baseSort.printArray();
         });
     }
 
@@ -59,8 +59,8 @@ public class Main {
 
         var unsortedNumbers = initializeUnsortedNumbers();
 
-        System.out.print("Itens sem ordem: ");
-        Arrays.stream(unsortedNumbers).forEach(value -> System.out.print(value + " "));
+        //System.out.print("Itens sem ordem: ");
+        //Arrays.stream(unsortedNumbers).forEach(value -> System.out.print(value + " "));
 
         baseSortList.forEach(baseSort -> baseSort.sort(unsortedNumbers));
 
