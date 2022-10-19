@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
 
@@ -29,24 +26,25 @@ public class Main {
         var selectionSort = new SelectionSort("Selection Sort");
         var insertionSort = new InsertionSort("Insertion Sort");
         var heapSort = new HeapSort("Heap Sort");
+        var mergeSort = new MergeSort("Merge Sort");
         var baseSortList = new ArrayList<BaseSort>();
 
         var unsortedNumbers = initializeUnsortedNumbers();
 
         System.out.print("Itens sem ordem: ");
-        for (int unsortedNumber : unsortedNumbers) {
-            System.out.print(unsortedNumber + " ");
-        }
+        Arrays.stream(unsortedNumbers).forEach(value -> System.out.print(value + " "));
 
         bubbleSort.sort(unsortedNumbers);
         selectionSort.sort(unsortedNumbers);
         insertionSort.sort(unsortedNumbers);
         heapSort.sort(unsortedNumbers);
+        mergeSort.sort(unsortedNumbers, 0, unsortedNumbers.length - 1);
 
         baseSortList.add(bubbleSort);
         baseSortList.add(selectionSort);
         baseSortList.add(insertionSort);
         baseSortList.add(heapSort);
+        baseSortList.add(mergeSort);
         printResult(baseSortList);
 
     }

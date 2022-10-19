@@ -26,7 +26,7 @@ public class HeapSort extends BaseSort {
         }
     }
 
-    void heapify(int arr[], int N, int i)
+    void heapify(int[] arr, int N, int i)
     {
         int largest = i; // Initialize largest as root
         int l = 2 * i + 1; // left = 2*i + 1
