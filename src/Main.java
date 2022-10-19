@@ -27,6 +27,7 @@ public class Main {
         var insertionSort = new InsertionSort("Insertion Sort");
         var heapSort = new HeapSort("Heap Sort");
         var mergeSort = new MergeSort("Merge Sort");
+        var quickSort = new QuickSort("Quick Sort");
         var baseSortList = new ArrayList<BaseSort>();
 
         var unsortedNumbers = initializeUnsortedNumbers();
@@ -39,12 +40,14 @@ public class Main {
         insertionSort.sort(unsortedNumbers);
         heapSort.sort(unsortedNumbers);
         mergeSort.sort(unsortedNumbers, 0, unsortedNumbers.length - 1);
+        quickSort.sort(unsortedNumbers, 0, unsortedNumbers.length - 1);
 
         baseSortList.add(bubbleSort);
         baseSortList.add(selectionSort);
         baseSortList.add(insertionSort);
         baseSortList.add(heapSort);
         baseSortList.add(mergeSort);
+        baseSortList.add(quickSort);
         printResult(baseSortList);
 
     }
