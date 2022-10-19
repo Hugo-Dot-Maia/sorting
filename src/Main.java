@@ -18,17 +18,7 @@ public class Main {
         return unsortedNumbers;
     }
 
-    private static void printResult(List<BaseSort> baseSortList){
-        baseSortList.forEach( baseSort -> {
-            System.out.println(
-                    "\nTempo decorrido para "
-                            + baseSort.algorithmName
-                            + " foi de: "
-                            + baseSort.tempoTranscorrido);
-           // baseSort.printArray();
-        });
-    }
-    public static void main(String[] args) {
+    private static List<BaseSort> initializeAlgorithmList(){
         var bubbleSort = new BubbleSort("Bubble Sort");
         var selectionSort = new SelectionSort("Selection Sort");
         var insertionSort = new InsertionSort("Insertion Sort");
@@ -36,20 +26,8 @@ public class Main {
         var mergeSort = new MergeSort("Merge Sort");
         var quickSort = new QuickSort("Quick Sort");
         var countingSort = new CountingSort("Counting Sort");
+
         var baseSortList = new ArrayList<BaseSort>();
-
-        var unsortedNumbers = initializeUnsortedNumbers();
-
-        //System.out.print("Itens sem ordem: ");
-        //Arrays.stream(unsortedNumbers).forEach(value -> System.out.print(value + " "));
-
-        bubbleSort.sort(unsortedNumbers);
-        selectionSort.sort(unsortedNumbers);
-        insertionSort.sort(unsortedNumbers);
-        heapSort.sort(unsortedNumbers);
-        mergeSort.sort(unsortedNumbers, 0, unsortedNumbers.length - 1);
-        quickSort.sort(unsortedNumbers, 0, unsortedNumbers.length - 1);
-        countingSort.sort(unsortedNumbers);
 
         baseSortList.add(bubbleSort);
         baseSortList.add(selectionSort);
@@ -58,6 +36,35 @@ public class Main {
         baseSortList.add(mergeSort);
         baseSortList.add(quickSort);
         baseSortList.add(countingSort);
+
+        return baseSortList;
+
+    }
+
+    private static void printResult(List<BaseSort> baseSortList){
+        baseSortList.forEach( baseSort -> {
+            System.out.println(
+                    "\nTempo decorrido para "
+                            + baseSort.algorithmName
+                            + " foi de: "
+                            + baseSort.tempoTranscorrido);
+            baseSort.printArray();
+        });
+    }
+
+
+    public static void main(String[] args) {
+
+        var baseSortList = initializeAlgorithmList();
+
+        var unsortedNumbers = initializeUnsortedNumbers();
+
+        System.out.print("Itens sem ordem: ");
+        Arrays.stream(unsortedNumbers).forEach(value -> System.out.print(value + " "));
+
+        baseSortList.forEach(baseSort -> baseSort.sort(unsortedNumbers));
+
+
         printResult(baseSortList);
 
     }

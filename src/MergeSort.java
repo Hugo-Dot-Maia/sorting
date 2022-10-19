@@ -56,19 +56,26 @@ public class MergeSort extends BaseSort{
     }
 
 
-    void sort(int[] arr, int l, int r)
+    //TODO Add benchmark timer
+    void mergeSort(int[] arr, int l, int r)
     {
-        sortedArray = Arrays.copyOf(arr, arr.length);
         if (l < r) {
             // Find the middle point
             int m = l + (r - l) / 2;
 
             // Sort first and second halves
-            sort(sortedArray, l, m);
-            sort(sortedArray, m + 1, r);
+            mergeSort(arr, l, m);
+            mergeSort(arr, m + 1, r);
 
             // Merge the sorted halves
-            merge(sortedArray, l, m, r);
+            merge(arr, l, m, r);
         }
+    }
+
+    @Override
+    public void sort(int[] arr){
+        sortedArray = Arrays.copyOf(arr, arr.length);
+        mergeSort(sortedArray,0, sortedArray.length - 1);
+
     }
 }

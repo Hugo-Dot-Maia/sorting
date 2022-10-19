@@ -41,20 +41,26 @@ public class QuickSort extends BaseSort{
      arr[] --> Array to be sorted,
      low  --> Starting index,
      high  --> Ending index */
-    void sort(int[] arr, int low, int high)
+    //TODO Add benchmark timer
+    private void quickSort(int[] arr, int low, int high)
     {
-        sortedArray = Arrays.copyOf(arr, arr.length);
         if (low < high)
         {
             /* pi is partitioning index, arr[pi] is
               now at right place */
-            int pi = partition(sortedArray, low, high);
+            int pi = partition(arr, low, high);
 
             // Recursively sort elements before
             // partition and after partition
-            sort(sortedArray, low, pi-1);
-            sort(sortedArray, pi+1, high);
+            quickSort(arr, low, pi-1);
+            quickSort(arr, pi+1, high);
         }
+    }
+    @Override
+    public void sort(int[] arr){
+
+        sortedArray = Arrays.copyOf(arr, arr.length);
+        quickSort(sortedArray,0, sortedArray.length - 1);
     }
 
 }
