@@ -1,26 +1,27 @@
 import java.util.Arrays;
 
-public class BubbleSort {
+public class BubbleSort extends BaseSort{
+    public BubbleSort(String algorithmName) {
+        this.algorithmName = algorithmName;
+    }
+
+    @Override
     public void sort(int[] arr) {
 
-        int [] bubbleArray = Arrays.copyOf(arr, arr.length);
-        int n = bubbleArray.length;
+        sortedArray = Arrays.copyOf(arr, arr.length);
+        int n = sortedArray.length;
         int temp;
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < (n - i); j++) {
-                if (bubbleArray[j - 1] > bubbleArray[j]) {
+                if (sortedArray[j - 1] > sortedArray[j]) {
                     //swap elements
-                    temp = bubbleArray[j - 1];
-                    bubbleArray[j - 1] = bubbleArray[j];
-                    bubbleArray[j] = temp;
+                    temp = sortedArray[j - 1];
+                    sortedArray[j - 1] = sortedArray[j];
+                    sortedArray[j] = temp;
                 }
 
             }
         }
 
-        System.out.print("Bubble Sort: ");
-        for (int sortedNumber : bubbleArray) {
-            System.out.print(sortedNumber + " ");
-        }
     }
 }

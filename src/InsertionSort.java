@@ -1,23 +1,24 @@
 import java.util.Arrays;
 
-public class InsertionSort {
-    void sort(int[] arr) {
-        int [] insertionArray = Arrays.copyOf(arr, arr.length);
-        int n = insertionArray.length;
+public class InsertionSort extends BaseSort {
+
+    public InsertionSort( String algorithmName) {
+        this.algorithmName = algorithmName;
+    }
+
+    @Override
+    public void sort(int[] arr) {
+        sortedArray = Arrays.copyOf(arr, arr.length);
+        int n = sortedArray.length;
         for (int i = 1; i < n; ++i) {
-            int key = insertionArray[i];
+            int key = sortedArray[i];
             int j = i - 1;
 
-            while (j >= 0 && insertionArray[j] > key) {
-                insertionArray[j + 1] = insertionArray[j];
+            while (j >= 0 && sortedArray[j] > key) {
+                sortedArray[j + 1] = sortedArray[j];
                 j = j - 1;
             }
-            insertionArray[j + 1] = key;
-        }
-
-        System.out.print("Insertion Sort: ");
-        for (int sortedNumber : insertionArray) {
-            System.out.print(sortedNumber + " ");
+            sortedArray[j + 1] = key;
         }
     }
 }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -18,10 +20,15 @@ public class Main {
         }
         return unsortedNumbers;
     }
+
+    private static void printResult(List<BaseSort> baseSortList){
+        baseSortList.forEach(BaseSort::printArray);
+    }
     public static void main(String[] args) {
-        var bubbleSort = new BubbleSort();
-        var selectionSort = new SelectionSort();
-        var insertionSort = new InsertionSort();
+        var bubbleSort = new BubbleSort("Bubble Sort");
+        var selectionSort = new SelectionSort("Selection Sort");
+        var insertionSort = new InsertionSort("Insertion Sort");
+        var baseSortList = new ArrayList<BaseSort>();
 
         var unsortedNumbers = initializeUnsortedNumbers();
 
@@ -29,13 +36,15 @@ public class Main {
         for (int unsortedNumber : unsortedNumbers) {
             System.out.print(unsortedNumber + " ");
         }
-        System.out.println("");
 
         bubbleSort.sort(unsortedNumbers);
-        System.out.println("");
         selectionSort.sort(unsortedNumbers);
-        System.out.println("");
         insertionSort.sort(unsortedNumbers);
+
+        baseSortList.add(bubbleSort);
+        baseSortList.add(selectionSort);
+        baseSortList.add(insertionSort);
+        printResult(baseSortList);
 
     }
 }
