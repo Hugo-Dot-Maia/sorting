@@ -56,7 +56,6 @@ public class MergeSort extends BaseSort{
     }
 
 
-    //TODO Add benchmark timer
     void mergeSort(int[] arr, int l, int r)
     {
         if (l < r) {

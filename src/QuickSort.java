@@ -41,7 +41,6 @@ public class QuickSort extends BaseSort{
      arr[] --> Array to be sorted,
      low  --> Starting index,
      high  --> Ending index */
-    //TODO Add benchmark timer
     private void quickSort(int[] arr, int low, int high)
     {
         if (low < high)

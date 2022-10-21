@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,15 +15,19 @@ public class NamesSort
             return Files.readAllLines(Path.of(filePath), charset);
         } catch (IOException e) {
             System.out.println("File Not Found");
-            return null;
+            return Collections.emptyList();
         }
     }
     public static void main(String[] args){
-        var names = readWordsFromFile();
+        List<String> names = readWordsFromFile();
+        String[] strings = new String[names.size()];
 
-        if(!Objects.isNull(names)){
-            names.forEach(System.out::println);
-        }
+        List<BaseSort> baseSortList = AlgorithmUtils.initializeAlgorithmList();
+
+        names.forEach(System.out::println);
+
+        baseSortList.forEach(baseSort -> baseSort.sortStrings(names.toArray(strings)));
+        baseSortList.forEach(BaseSort::printStringArray);
 
     }
 }
