@@ -4,11 +4,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class NamesSort
 {
-    public static List<String> readWordsFromFile(){
+    public static List<String> readNamesFromFile(){
         var charset = StandardCharsets.UTF_8;
         var filePath = "src/nomes.txt";
         try {
@@ -19,7 +18,7 @@ public class NamesSort
         }
     }
     public static void main(String[] args){
-        List<String> names = readWordsFromFile();
+        List<String> names = readNamesFromFile();
         String[] strings = new String[names.size()];
 
         List<BaseSort> baseSortList = AlgorithmUtils.initializeAlgorithmList();
