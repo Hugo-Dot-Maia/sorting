@@ -5,15 +5,14 @@ import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
-public class NamesSort
-{
+public class NamesSort {
     public static List<String> readNamesFromFile(){
         var charset = StandardCharsets.UTF_8;
         var filePath = "src/nomes.txt";
         try {
             return Files.readAllLines(Path.of(filePath), charset);
         } catch (IOException e) {
-            System.out.println("File Not Found");
+            System.out.println("Arquivo nao encontrado");
             return Collections.emptyList();
         }
     }
