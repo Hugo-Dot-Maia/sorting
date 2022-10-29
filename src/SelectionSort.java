@@ -26,4 +26,21 @@ public class SelectionSort extends BaseSort {
 
         tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
+
+    @Override
+    public void sortStrings( String[] array )
+    {
+        sortedStringArray = Arrays.copyOf(array, array.length);
+        for ( int j=0; j < sortedStringArray.length-1; j++ )
+        {
+            int min = j;
+            for ( int k=j+1; k < sortedStringArray.length; k++ )
+                if ( sortedStringArray[k].compareTo( sortedStringArray[min] ) < 0 ) min = k;
+
+            String temp = sortedStringArray[j];
+            sortedStringArray[j] = sortedStringArray[min];
+            sortedStringArray[min] = temp;
+        }
+
+    }
 }
