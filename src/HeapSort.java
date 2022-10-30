@@ -59,6 +59,7 @@ public class HeapSort extends BaseSort {
         }
 
         heapSort();
+
     }
 
     @Override
@@ -99,8 +100,6 @@ public class HeapSort extends BaseSort {
         while (baseIndex >= 0) {
             String k;
             k = heapStrings[0];
-
-            System.out.print(k + " ");
 
             heapStrings[0] = heapStrings[baseIndex];
 

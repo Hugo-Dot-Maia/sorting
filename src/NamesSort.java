@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class NamesSort {
     public static List<String> readNamesFromFile(){
@@ -20,9 +21,10 @@ public class NamesSort {
         List<String> names = readNamesFromFile();
         String[] strings = new String[names.size()];
 
-        List<BaseSort> baseSortList = AlgorithmUtils.initializeAlgorithmList();
-
-        names.forEach(System.out::println);
+        List<BaseSort> baseSortList = AlgorithmUtils.initializeAlgorithmList()
+                .stream()
+                .filter(baseSort -> !Objects.equals(baseSort.algorithmName, "Counting Sort"))
+                .toList();
 
         baseSortList.forEach(baseSort -> baseSort.sortStrings(names.toArray(strings)));
         baseSortList.forEach(BaseSort::printStringArray);

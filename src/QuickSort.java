@@ -48,7 +48,6 @@ public class QuickSort extends BaseSort{
 
     @Override
     public void sorting(String[] array, int start, int end) {
-        sortedStringArray = Arrays.copyOf(array, array.length);
 
         int i = start;
         int k = end;
@@ -74,5 +73,11 @@ public class QuickSort extends BaseSort{
         String temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
+    }
+
+    @Override
+    public void sortStrings(String[] strings){
+        sortedStringArray = Arrays.copyOf(strings, strings.length);
+        sorting(sortedStringArray,0,sortedStringArray.length-1);
     }
 }
