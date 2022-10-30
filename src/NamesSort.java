@@ -26,6 +26,5 @@ public class NamesSort {
 
         baseSortList.forEach(baseSort -> baseSort.sortStrings(names.toArray(strings)));
         baseSortList.forEach(BaseSort::printStringArray);
-
     }
 }
