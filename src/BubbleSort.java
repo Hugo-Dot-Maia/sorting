@@ -29,7 +29,6 @@ public class BubbleSort extends BaseSort{
     public void sortStrings(String[] names) {
         sortedStringArray = Arrays.copyOf(names, names.length);
         String temp;
-        System.out.println("sorted order:");
         for (int j = 0; j < sortedStringArray.length; j++) {
             for (int i = j + 1; i < sortedStringArray.length; i++) {
                 if (sortedStringArray[i].compareTo(sortedStringArray[j]) < 0) {
