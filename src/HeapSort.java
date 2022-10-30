@@ -11,12 +11,12 @@ public class HeapSort extends BaseSort {
         tempoInicio = System.currentTimeMillis();
 
         sortedArray = Arrays.copyOf(arr, arr.length);
-        int N = sortedArray.length;
+        int n = sortedArray.length;
 
-        for (int i = N / 2 - 1; i >= 0; i--) {
-            heapify(sortedArray, N, i);
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(sortedArray, n, i);
         }
-        for (int i = N - 1; i > 0; i--) {
+        for (int i = n - 1; i > 0; i--) {
             int temp = sortedArray[0];
             sortedArray[0] = sortedArray[i];
             sortedArray[i] = temp;
@@ -27,15 +27,15 @@ public class HeapSort extends BaseSort {
         tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
 
-    void heapify(int[] arr, int N, int i) {
+    void heapify(int[] arr, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
         int r = 2 * i + 2;
 
-        if (l < N && arr[l] > arr[largest]){
+        if (l < n && arr[l] > arr[largest]){
             largest = l;
         }
-        if (r < N && arr[r] > arr[largest]) {
+        if (r < n && arr[r] > arr[largest]) {
             largest = r;
         }
 
@@ -44,7 +44,7 @@ public class HeapSort extends BaseSort {
             arr[i] = arr[largest];
             arr[largest] = swap;
 
-            heapify(arr, N, largest);
+            heapify(arr, n, largest);
         }
     }
 
@@ -52,7 +52,7 @@ public class HeapSort extends BaseSort {
     public void sortStrings (String[] names){
         sortedStringArray = Arrays.copyOf(names, names.length);
 
-        int n = sortedStringArray.length;
+        //int n = sortedStringArray.length;
 
         for (String s : sortedStringArray) {
             heapForm(s);
