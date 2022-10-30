@@ -42,6 +42,10 @@ public class InsertionSort extends BaseSort {
         }
     }
 
+    @Override
+    public void sorting(String[] array, int start, int end) {
+
+    }
 
 
 }

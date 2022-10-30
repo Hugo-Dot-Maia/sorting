@@ -68,4 +68,35 @@ public class MergeSort extends BaseSort{
 
         tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
+
+    @Override
+    public void sortStrings(String[] names){
+        sortedStringArray = Arrays.copyOf(names, names.length);
+        int n = sortedStringArray.length;
+
+        for (int i = 0; i < n - 1; i++) {
+
+            int min_idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (isAlphabeticallySmaller(
+                        sortedStringArray[j], sortedStringArray[min_idx])) {
+                    min_idx = j;
+                }
+            }
+            String temp = sortedStringArray[min_idx];
+            sortedStringArray[min_idx] = sortedStringArray[i];
+            sortedStringArray[i] = temp;
+        }
+    }
+
+    @Override
+    public void sorting(String[] array, int start, int end) {
+
+    }
+
+    static boolean isAlphabeticallySmaller(String str1, String str2){
+        str1 = str1.toUpperCase();
+        str2 = str2.toUpperCase();
+        return str1.compareTo(str2) < 0;
+    }
 }

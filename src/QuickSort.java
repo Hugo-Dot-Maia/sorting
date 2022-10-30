@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class QuickSort extends BaseSort{
     public QuickSort(String algorithmName) {
@@ -46,4 +46,33 @@ public class QuickSort extends BaseSort{
         tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
 
+    @Override
+    public void sorting(String[] array, int start, int end) {
+        sortedStringArray = Arrays.copyOf(array, array.length);
+
+        int i = start;
+        int k = end;
+        if (end - start >= 1) {
+            String pivot = sortedStringArray[start];
+            while (k > i) {
+                while (sortedStringArray[i].compareTo(pivot) <= 0 && i <= end && k > i)
+                    i++;
+                while (sortedStringArray[k].compareTo(pivot) > 0 && k >= start && k >= i)
+                    k--;
+                if (k > i)
+                    swap(sortedStringArray, i, k);
+            }
+            swap(sortedStringArray, start, k);
+            sorting(sortedStringArray, start, k - 1);
+            sorting(sortedStringArray, k + 1, end);
+        }
+        else {
+            return;
+        }
+    }
+    public void swap(String[] array, int index1, int index2) {
+        String temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
+    }
 }

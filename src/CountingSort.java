@@ -33,4 +33,9 @@ public class CountingSort extends BaseSort{
 
         tempoTranscorrido = (long) ((System.currentTimeMillis() - tempoInicio) * 1000d);
     }
+
+    @Override
+    public void sorting(String[] array, int start, int end) {
+
+    }
 }
