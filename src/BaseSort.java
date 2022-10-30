@@ -27,4 +27,6 @@ public abstract class BaseSort {
             System.out.print(sortedString + "; ");
         }
     }
+
+    public abstract void sorting(String[] array, int start, int end);
 }
